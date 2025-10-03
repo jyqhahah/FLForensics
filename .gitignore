@@ -1,0 +1,57 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.$py.class
+
+# C extensions
+*.so
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+*.egg-info/
+.eggs/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Distribution / packaging
+build/
+dist/
+*.egg
+*.manifest
+*.spec
+
+# Logs and databases
+*.log
+*.out
+*.err
+*.sqlite
+*.db
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python cache
+*.npy
+*.npz
+
+# Model params / large files
+global_model_params/
+client_update_params/
+
+# Shell artifacts
+*.sh~
+*.bak
+
+# Misc
+*.tar.gz
+*.zip
+*.tmp
