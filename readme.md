@@ -7,10 +7,11 @@ This repository contains the official code for our **NeurIPS 2025** paper:
 
 ## 🚀 Environment Setup
 
-We recommend using **Python 3.10** and **conda** for environment management.
+We recommend using **conda** for environment management.
 
 ```bash
 conda env create -f environment.yml
+conda activate flforensics
 ````
 
 ---
