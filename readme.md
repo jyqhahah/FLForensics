@@ -18,7 +18,7 @@ conda activate flforensics
 
 ## 🏋️ Training
 
-To train the model, use the following command (example for **Scaling Attack**):
+To train the model and save the checkpoints, use the following command (example for **Scaling Attack**):
 
 ```bash
 python3 train.py --dataset cifar10 --bias 0.5 --net resnet --gpu 5 --seed 1 --epochs 1500 --lr 0.01 \
@@ -39,9 +39,9 @@ python3 train.py --dataset cifar10 --bias 0.5 --net resnet --gpu 5 --seed 1 --ep
 
 ---
 
-## 🔎 Testing / Evaluation
+## 🔎 Trace Back
 
-To evaluate a trained model:
+To trace back using saved checkpoints:
 
 ```bash
 python3 test.py --dataset cifar10 --bias 0.5 --net resnet --gpu 1 --seed 1 --epochs 1500 --lr 0.01 \
