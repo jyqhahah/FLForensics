@@ -1,0 +1,26 @@
+name: flforensics
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python==3.6.13
+  - pip
+  - wheel 
+  - numpy==1.16.4
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - pandas
+  - jupyter
+  - notebook
+  - ipykernel
+  - seaborn
+  - tqdm
+  - pip:
+      - mxnet-cu112==1.9.1
+      - gluonnlp==0.8.3     
+      - hdbscan==0.8.27               
+      - tweet-preprocessor
+      - nltk
+      - regex
+      - joblib

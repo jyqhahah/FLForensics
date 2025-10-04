@@ -10,12 +10,7 @@ This repository contains the official code for our **NeurIPS 2025** paper:
 We recommend using **Python 3.10** and **conda** for environment management.
 
 ```bash
-# create a new conda environment
-conda create -n flforensics python=3.10 -y
-conda activate flforensics
-
-# install dependencies
-pip install -r requirements.txt
+conda env create -f environment.yml
 ````
 
 ---
@@ -63,7 +58,7 @@ If you use this code in your work, please kindly cite the following paper:
 ```bibtex
 @inproceedings{jia2025flforensics,
   title={Tracing Back the Malicious Clients in Poisoning Attacks to Federated Learning},
-  author={Jia, Yuqi and Fang, Minghong and Liu, Hongbin and Zhang, Jinghuai and Gong, Neil Zhenqiang},
+  author={Jia, Yuqi and Fang, Minghong and Liu, Hongbin and Zhang, Jinghuai and Gong, Neil},
   booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
   year={2025}
 }
