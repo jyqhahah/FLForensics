@@ -193,7 +193,7 @@ def train_and_save_model(args):
                             batch_y[example_id] = 2
                 elif args.byz_type == 'edge' and e % args.start_attack < attack_period:
                     if i in malicious_index:
-                        num_sampled_poisoned_data_points = batch_x.shape[0] // 2
+                        num_sampled_poisoned_data_points = batch_x.shape[0] // 4 * 3
                         sampled_poisoned_data_indices = np.random.choice(saved_southwest_dataset_train.shape[0],
                                                                          num_sampled_poisoned_data_points,
                                                                          replace=False)

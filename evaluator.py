@@ -80,6 +80,7 @@ def evaluate_edge_backdoor(data, net, context=mx.cpu()):
     label = 9 * nd.ones(len(data)).as_in_context(context)
     predictions = nd.argmax(output, axis=1)
     err_ind = -1
+    err_indices = []
     x_ta = [data[err_ind].as_in_context(context).reshape(1, 3, 32, 32)]
     y_label = [label[err_ind].as_in_context(context)]
     y_pred = [predictions[err_ind]]
@@ -90,10 +91,9 @@ def evaluate_edge_backdoor(data, net, context=mx.cpu()):
         la = la.asnumpy().astype('int32')
         err_ind += 1
         if pr == la:
-            break
-    if err_ind != -1:
-        x_ta = [data[err_ind].as_in_context(context).reshape(1, 3, 32, 32)]
-        y_label = [label[err_ind].as_in_context(context)]
-        y_pred = [predictions[err_ind]]
+            err_indices.append(err_ind)
+    x_ta = [data[ind].as_in_context(context).reshape(1, 3, 32, 32) for ind in err_indices]
+    y_label = [label[ind].as_in_context(context) for ind in err_indices]
+    y_pred = [predictions[ind] for ind in err_indices]
     acc.update(preds=predictions, labels=label)
-    return acc.get()[1], x_ta, y_label, y_pred, err_ind
+    return acc.get()[1], x_ta, y_label, y_pred, err_indices

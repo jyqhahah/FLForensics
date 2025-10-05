@@ -142,7 +142,6 @@ def test(args):
     
     print("Calculate influence: ")
     infl_list_prefixsum = np.array(influence_prefixsum(test_grad, worker_list, args, ctx))
-    pred_labels_agg = np.zeros((num_workers,), dtype=int)
 
     for _, test_grad_tr in enumerate(test_grad_trs):
         infl_list = np.array(influence_prefixsum(test_grad_tr, worker_list, args, ctx))
@@ -155,14 +154,6 @@ def test(args):
         print(pred_labels)
         detect_acc, detect_fpr, detect_fnr = evaluation(true_labels, pred_labels)
         print("detect_acc: %.4f, detect_fpr: %.4f, detect_fnr: %.4f. " % (detect_acc, detect_fpr, detect_fnr), label_malicious)
-        pred_labels_agg += np.array(pred_labels)
-    majority_vote = int(n_samples / 2) + 1
-    majority_vote = n_samples
-    pred_labels_agg[np.where(pred_labels_agg < majority_vote)] = 0
-    pred_labels_agg[np.where(pred_labels_agg >= majority_vote)] = 1
-    detect_acc, detect_fpr, detect_fnr = evaluation(true_labels, pred_labels_agg)
-    print("Aggregation result: detect_acc: %.4f, detect_fpr: %.4f, detect_fnr: %.4f. " % (
-        detect_acc, detect_fpr, detect_fnr))
     print(input_str)
 
 
